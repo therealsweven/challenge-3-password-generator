@@ -1,16 +1,13 @@
 // Assignment code here
 
+//Variable Declarations
 var lowercase = "abcdefghijklmnopqrstuvwxyz";
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numbers = "0123456789";
 var special = " !#$%&'()*+,-./:;<=>?@[^_`{|}~";
 var charNumber = 0;
-console.log(charNumber);
 
-// console.log(lowercase.charAt(7));
-// console.log(uppercase.charAt(7));
-// console.log(numbers.charAt(7));
-// console.log(special.charAt(7));
+console.log(charNumber); //Log number of characters selected by user
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -33,7 +30,7 @@ function generatePassword() {
 
   console.log(charNumber); //Testing user input
 
-  var charSet = "";
+  var charSet = ""; //Declare variable with empty string value to hold character set the password will generate from
   var lowYN = confirm(
     "Use lowercase letters? \n Press confirm for yes and cancel for no"
   );
