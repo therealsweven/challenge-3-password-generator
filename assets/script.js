@@ -5,7 +5,7 @@ var lowercase = "abcdefghijklmnopqrstuvwxyz";
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numbers = "0123456789";
 var special = " !#$%&'()*+,-./:;<=>?@[^_`{|}~";
-var charNumber = 0;
+var charNumber = 0; //Defines number of characters specified by user as 0 to allow user to select in the do {} while (charNummber between 8 and 128) below
 
 console.log(charNumber); //Log number of characters selected by user
 
@@ -14,13 +14,16 @@ var generateBtn = document.querySelector("#generate");
 
 // Write function to generate password
 function generatePassword() {
+  //Prompts user to answer how many characters between 8 and 128
   do {
     charNumber = prompt(
       "Please specify number of characters between 8 and 128."
     );
     if (charNumber === null) {
-      return; //terminates function and returns to main page
+      return; //terminates function and returns to main page on 'cancel'
     }
+
+    //requires a resubmit if the user input doesn't meet the specified criteria
     if (charNumber < 8) {
       alert("You must choose a number of characters greater than 8.");
     } else if (charNumber > 128) {
@@ -31,6 +34,10 @@ function generatePassword() {
   console.log(charNumber); //Testing user input
 
   var charSet = ""; //Declare variable with empty string value to hold character set the password will generate from
+
+  //Prompts user to confirm whether or not they want to use lowercase letters, uppercase letters, numbers, and special characters in the password
+
+  // Answer stored in corresponding variables as boolean values
   var lowYN = confirm(
     "Use lowercase letters? \n Press confirm for yes and cancel for no"
   );
@@ -44,7 +51,7 @@ function generatePassword() {
     "Use special characters? \n Press confirm for yes and cancel for no"
   );
 
-  //Use conditional statements to define what character set the password generator will be pulling characters from
+  //Use conditional statements to define what full character set the password generator will be pulling characters from
   if (lowYN == true) {
     charSet += lowercase;
   }
