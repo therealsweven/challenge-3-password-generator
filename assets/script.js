@@ -53,7 +53,7 @@ function generatePassword() {
 
   //Use conditional statements to define what full character set the password generator will be pulling characters from
   if (lowYN == true) {
-    charSet += lowercase;
+    charSet.concat(lowercase);
   }
   if (uppYN == true) {
     charSet += uppercase;

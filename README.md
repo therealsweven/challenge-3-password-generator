@@ -6,6 +6,10 @@ Random password generator considering user specified constraints
 
 A user that handles sensitive data wanted to create a randomized password to improve security. The user wanted to be able to give specific parameters to assist in creating the password. The user wants to decide the character length (between 8 and 128 characters) as well as whether it will or will not include lowercase letters, uppercase letters, numbers, and special characters. This password generator satisfies all the criteria the user insisted on allowing a random password to be created utilizing user specified parameters.
 
+![Screenshot](Screenshot.png)
+
+URL: https://therealsweven.github.io/challenge-3-password-generator/
+
 ## Installation
 
 N/A
