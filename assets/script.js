@@ -64,18 +64,22 @@ function generatePassword() {
   if (specYN == true) {
     charSet += special;
   }
-  console.log(charSet); //Te
+  console.log(charSet); //Logs full character set to be used when generating the password
 
+  //Declare pw variable (currently formed password) as an empty string value to start
   var pw = "";
+
+  //Declare addition as empty string array to hold the values that will be added to the password in each cycle of the for loop below
   var addition = [""];
-  console.log(pw);
+
+  //Generates password using a for loop adding each loop's addition to the current combined password (pw string)
   for (i = 0; i < charNumber; i++) {
     addition[i] = charSet[Math.floor(Math.random() * charSet.length)];
     console.log(addition[i]);
     pw += addition[i];
   }
-  console.log(pw);
-  return pw;
+  console.log(pw); //logs pw
+  return pw; //returns function output of pw
 }
 
 // Write password to the #password input
