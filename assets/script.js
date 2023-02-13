@@ -5,6 +5,7 @@ var lowercase = "abcdefghijklmnopqrstuvwxyz";
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numbers = "0123456789";
 var special = " !#$%&'()*+,-./:;<=>?@[^_`{|}~";
+
 var charNumber = 0; //Defines number of characters specified by user as 0 to allow user to select in the do {} while (charNummber between 8 and 128) below
 
 console.log(charNumber); //Log number of characters selected by user
@@ -35,36 +36,57 @@ function generatePassword() {
 
   var charSet = ""; //Declare variable with empty string value to hold character set the password will generate from
 
-  //Prompts user to confirm whether or not they want to use lowercase letters, uppercase letters, numbers, and special characters in the password
+  function userChoice() {
+    //Declaring variables to hold user input data with default value of false
+    var lowYN = false;
+    var uppYN = false;
+    var numYN = false;
+    var specYN = false;
+    //Prompts user to confirm whether or not they want to use lowercase letters, uppercase letters, numbers, and special characters in the password
 
-  // Answer stored in corresponding variables as boolean values
-  var lowYN = confirm(
-    "Use lowercase letters? \n Press confirm for yes and cancel for no"
-  );
-  var uppYN = confirm(
-    "Use uppercase letters? \n Press confirm for yes and cancel for no"
-  );
-  var numYN = confirm(
-    "Use numbers? \n Press confirm for yes and cancel for no"
-  );
-  var specYN = confirm(
-    "Use special characters? \n Press confirm for yes and cancel for no"
-  );
+    // Answer stored in corresponding variables as boolean values
+    var lowYN = confirm(
+      "Use lowercase letters? \n Press confirm for yes and cancel for no"
+    );
+    var uppYN = confirm(
+      "Use uppercase letters? \n Press confirm for yes and cancel for no"
+    );
+    var numYN = confirm(
+      "Use numbers? \n Press confirm for yes and cancel for no"
+    );
+    var specYN = confirm(
+      "Use special characters? \n Press confirm for yes and cancel for no"
+    );
+    // console.log(lowYN);
+    // console.log(uppYN);
+    // console.log(numYN);
+    // console.log(specYN);
 
-  //Use conditional statements to define what full character set the password generator will be pulling characters from
-  if (lowYN == true) {
-    charSet.concat(lowercase);
+    //Use conditional statements to define what full character set the password generator will be pulling characters from
+    if (lowYN == true) {
+      charSet += lowercase;
+    }
+    if (uppYN == true) {
+      charSet += uppercase;
+    }
+    if (numYN == true) {
+      charSet += numbers;
+    }
+    if (specYN == true) {
+      charSet += special;
+    }
+    console.log(charSet); //Logs full character set to be used when generating the password
+
+    //Displays alert and recalls the function if the user doesn't confirm any of the four types
+    if (lowYN == false && uppYN == false && numYN == false && specYN == false) {
+      alert(
+        "You haven't selected any of the four character types. Please try again and choose 'confirm' on at least one character type."
+      );
+      userChoice();
+    }
   }
-  if (uppYN == true) {
-    charSet += uppercase;
-  }
-  if (numYN == true) {
-    charSet += numbers;
-  }
-  if (specYN == true) {
-    charSet += special;
-  }
-  console.log(charSet); //Logs full character set to be used when generating the password
+
+  userChoice(); //Calls function to allow user to choose types of characters
 
   //Declare pw variable (currently formed password) as an empty string value to start
   var pw = "";
